@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import datetime
 import pprint
 import requests
 import sys
@@ -20,7 +21,7 @@ def main():
     while True:
         response = requests.get(url)
 
-        print("Checking for iPhone 13 Max availability...")
+        print(f"{datetime.datetime.now().isoformat()} - Checking for iPhone 13 Max availability...")
         found = False
         for store in response.json()["body"]["PickupMessage"]["stores"]:
             if store["partsAvailability"]:
